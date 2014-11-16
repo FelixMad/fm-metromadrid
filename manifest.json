@@ -1,0 +1,32 @@
+{
+	"name": "Metro de Madrid",
+	"version": "1.0",
+	"manifest_version": 2,
+	"description": "Extension para notificaciones de incidencias del Metro de Madrid",
+	"background": {
+		"page": "background.html"
+	},
+	"content_scripts" : [
+	{
+		"matches" : [ "http://*/*"],
+		"css": ["css/style.css"],
+		"js" : ["js/jquery.js", "js/script.js", "js/form.js"]
+	}
+	],
+	"options_page": "options.html",
+	"icons": {
+		"16": "icon/icon16.png",
+		"48": "icon/icon48.png",
+		"128": "icon/icon128.png"
+	},
+	"permissions": [
+		"background",
+		"notifications",
+		"http://search.twitter.com/*"
+	],
+	"browser_action":{
+		"default_icon": "icon/icon16.png",
+		"default_title": "Metro Madrid"
+	},
+	"content_security_policy": "default-src 'none'; img-src *; media-src 'self'; style-src 'self'; connect-src http://search.twitter.com; script-src 'self'"
+}
